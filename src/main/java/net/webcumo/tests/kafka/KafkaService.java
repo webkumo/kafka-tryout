@@ -34,6 +34,6 @@ public class KafkaService {
 
     @PostConstruct
     public void logState() {
-        log.debug("Current config:\nproxy: {1}\nconsumer: {2}\nproducer: {3}", proxy, consumer, producer);
+        log.debug("Current config:\nproxy: {0}\nconsumer: {1}\nproducer: {2}", proxy, consumer, producer);
     }
 }
