@@ -1,0 +1,37 @@
+kafka-service:
+  core-pool-size: 25
+  max-pool-size: 50
+  queue-capacity: 100
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: earliest
+      group-id: test-kafka-service
+
+---
+spring:
+  profiles: producer
+
+kafka-service:
+  mode: producer
+  requestTopic: resp
+
+---
+spring:
+  profiles: proxy1
+
+kafka-service:
+  mode: proxy
+  requestTopic: 1
+  answerTopic: resp
+
+---
+spring:
+  profiles: proxy2
+
+kafka-service:
+  mode: proxy
+  requestTopic: 2
+  answerTopic: resp
